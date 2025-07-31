@@ -2,7 +2,7 @@
 // IMPORTANT: Use 'http://127.0.0.1:5000' for testing on your computer.
 // For testing on your phone, replace with your computer's local network IP address.
 // Example: 'http://192.168.1.5:5000'
-const BACKEND_URL = 'http://192.168.1.16:5000/api/scan';
+const BACKEND_URL = 'https://senior-vision-ai.onrender.com';
 
 // --- GET HTML ELEMENTS ---
 const cameraInput = document.getElementById('cameraInput');
