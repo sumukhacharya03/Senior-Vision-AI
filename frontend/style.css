@@ -1,4 +1,3 @@
-/* Import a modern font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
@@ -80,24 +79,6 @@ p {
     color: #ffffff;
     font-weight: 500;
     line-height: 1.5;
-}
-
-/* This new class will be used for the karaoke effect */
-.highlight {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 2px 4px;
-    border-radius: 5px;
-}
-
-/* This is the new loading spinner */
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #ffffff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    display: none; /* Hidden by default */
 }
 
 @keyframes spin {

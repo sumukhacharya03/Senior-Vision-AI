@@ -1,33 +1,24 @@
-// --- CONFIGURATION ---
-// IMPORTANT: Use 'http://127.0.0.1:5000' for testing on your computer.
-// For testing on your phone, replace with your computer's local network IP address.
-// Example: 'http://192.168.1.5:5000'
+// For testing on Computer: 'http://127.0.0.1:5000'
+// For testing on your Phone: 'http://192.168.1.5:5000' (Replace it with your IP Adress)
 const BACKEND_URL = 'https://senior-vision-ai.onrender.com/api/scan';
 
-// --- GET HTML ELEMENTS ---
 const cameraInput = document.getElementById('cameraInput');
 const scanButton = document.getElementById('scanButton');
 const statusText = document.getElementById('statusText');
 
-// --- EVENT LISTENERS ---
-
-// When the user clicks the main "Scan Product" button, trigger the hidden file input
 scanButton.addEventListener('click', () => {
     cameraInput.click();
 });
 
-// When the user has taken a picture, this event is fired
 cameraInput.addEventListener('change', async (event) => {
     const file = event.target.files[0];
     if (!file) {
-        return; // User cancelled the camera
+        return;
     }
 
-    // Show a loading message
     statusText.textContent = 'Scanning... Please wait.';
     scanButton.disabled = true;
 
-    // Send the image to the backend
     try {
         const formData = new FormData();
         formData.append('image', file);
@@ -40,12 +31,10 @@ cameraInput.addEventListener('change', async (event) => {
         const result = await response.json();
 
         if (response.ok) {
-            // Success! Display and speak the summary.
             const summary = result.summary;
             statusText.textContent = summary;
             speakText(summary);
         } else {
-            // Handle errors from the backend
             throw new Error(result.error || 'An unknown error occurred.');
         }
 
@@ -55,19 +44,16 @@ cameraInput.addEventListener('change', async (event) => {
         statusText.textContent = errorMessage;
         speakText(errorMessage);
     } finally {
-        // Re-enable the button and clear the file input for the next scan
         scanButton.disabled = false;
-        cameraInput.value = ''; // Reset the input
+        cameraInput.value = '';
     }
 });
 
-// --- TEXT-TO-SPEECH FUNCTION ---
 function speakText(text) {
-    // Stop any speech that is currently active
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US'; // Set language
-    utterance.rate = 0.9;     // Make it speak a little slower
+    utterance.lang = 'en-US'; 
+    utterance.rate = 0.9;     
     window.speechSynthesis.speak(utterance);
 }
