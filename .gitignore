@@ -1,0 +1,14 @@
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+
+# Test data - Do not deploy
+data/
+
+# Environment variables - DO NOT PUSH YOUR SECRETS
+.env
+
+# Google Cloud credentials file
+*.json

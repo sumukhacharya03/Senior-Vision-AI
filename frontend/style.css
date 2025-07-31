@@ -1,0 +1,107 @@
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+#scanButton {
+    background: linear-gradient(45deg, #fa7e1e, #d62976, #962fbf);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 20px 30px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#scanButton:active {
+    transform: scale(0.95);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#resultArea {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#statusText {
+    font-size: 1.6rem;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* This new class will be used for the karaoke effect */
+.highlight {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
+/* This is the new loading spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
